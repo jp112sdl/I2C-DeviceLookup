@@ -28,10 +28,28 @@ void setup() {
   Serial.begin(57600);
   Wire.begin();
 
+
   byte error, address;
   int nDevices;
 
-  Serial.println("Scanning...");
+  //Wire.setClock(400000L); // this is default
+  Serial.println("Scanning with 400kHz...");
+
+  nDevices = 0;
+  for (address = 1; address < 127; address++ )  {
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+    if (error == 0) {
+      Serial.print("I2C device found at address 0x"); Serial.println(address, HEX);
+      i2c_identify(address);
+      nDevices++;
+    } else if (error == 4) {
+      Serial.print("Unknown error at address 0x"); Serial.println(address, HEX);
+    }
+  }
+
+  Wire.setClock(800000L);
+  Serial.println("\nScanning with 800kHz...");
 
   nDevices = 0;
   for (address = 1; address < 127; address++ )  {
