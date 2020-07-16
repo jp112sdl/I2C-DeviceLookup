@@ -16,7 +16,7 @@ void i2c_identify(byte address) {
       if (i2cDevice.addrs[j] == address) {
                        Serial.print("  -> might be ");
         /* Name:     */Serial.print((const __FlashStringHelper *)i2cDevice.name);
-        /* Function: */Serial.print("("); Serial.print((const __FlashStringHelper *)i2cDevice.function); Serial.println(")");
+        /* Function: */Serial.print(" ("); Serial.print((const __FlashStringHelper *)i2cDevice.function); Serial.println(")");
         break;
       }
       j++;
