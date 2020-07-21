@@ -32,8 +32,7 @@ void setup() {
   byte error, address;
   int nDevices;
 
-  //Wire.setClock(400000L); // this is default
-  Serial.println(F("Scanning (400kHz clock speed) ..."));
+  Serial.println(F("Scanning (100kHz clock speed) ..."));
 
   nDevices = 0;
   for (address = 1; address < 127; address++ )  {
