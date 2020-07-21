@@ -33,7 +33,7 @@ void setup() {
   int nDevices;
 
   //Wire.setClock(400000L); // this is default
-  Serial.println("Scanning with 400kHz...");
+  Serial.println(F("Scanning (400kHz clock speed) ..."));
 
   nDevices = 0;
   for (address = 1; address < 127; address++ )  {
@@ -49,7 +49,7 @@ void setup() {
   }
 
   Wire.setClock(800000L);
-  Serial.println("\nScanning with 800kHz...");
+  Serial.println("\nScanning (800kHz clock speed) ...");
 
   nDevices = 0;
   for (address = 1; address < 127; address++ )  {
